@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>toggle</title>
+		<style type="text/css" media="screen">
+			.more {
+	display: none;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666; }
+a.showLink, a.hideLink {
+	text-decoration: none;
+	color: #36f;
+	padding-left: 8px;
+	background: transparent url('down.gif') no-repeat left; }
+a.hideLink {
+	background: transparent url('up.gif') no-repeat left; }
+a.showLink:hover, a.hideLink:hover {
+	border-bottom: 1px dotted #36f; }
+		</style>
+		<script>
+			function showHide(shID) {
+	if (document.getElementById(shID)) {
+		if (document.getElementById(shID+'-show').style.display != 'none') {
+			document.getElementById(shID+'-show').style.display = 'none';
+			document.getElementById(shID).style.display = 'block';
+		}
+		else {
+			document.getElementById(shID+'-show').style.display = 'inline';
+			document.getElementById(shID).style.display = 'none';
+		}
+	}
+}
+		</script>
+		
+	</head>
+	<body>
+		<p>...This is all visible content... 
+<a href="#" id="example-show" class="showLink" 
+onclick="showHide('example');return false;">See more.</a>
+</p>
+<div id="example" class="more">
+	<p>...This content is hidden by default...</p>
+	<p><a href="#" id="example-hide" class="hideLink" 
+	onclick="showHide('example');return false;">Hide this content.</a></p>
+</div>
+	</body>
+</html>
